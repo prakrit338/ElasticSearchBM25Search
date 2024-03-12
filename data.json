@@ -1,0 +1,33 @@
+{
+  "id":"d570bceb-b997-3b0e-a70f-ede0890b89da",
+  "results":[
+     {
+        "text":"Wordtune is now offering its own application programming interface (API), with the same high-quality writing and reading capabilities that you know and love from Wordtune!\n\nWith Wordtune API, developers can integrate Wordtune’s cutting-edge natural language processing (NLP) technology into their own apps and platforms.\n\nCompanies can also use Wordtune API to build AI-powered products that optimize users’ reading and writing tasks.\n\nWordtune API is only accessible through the AI21 Studio website, our platform where businesses and developers can use our models to build NLP-powered apps and services.",
+        "fileId":"23d79939-0aef-45bb-8c02-484497b64cec",
+        "fileName":"desktop/folder/What is Wordtune API.txt",
+        "score":1.43962753,
+        "publicUrl":"https://support.wordtune.com/en/articles/7063855-what-is-wordtune-api"
+     },
+     {
+        "text":"The Wordtune Google Chrome Extension is compatible with a wide range of sites and platforms, such as Gmail, Google Docs, Slack Web, Facebook and many more. We are constantly working to adapt the Wordtune Extension to new sites and platforms. If there is a particular one you'd find it useful on, reach out to the team by clicking on the messenger in the bottom right hand corner of this page and we'll prioritize it.In the meantime, many of our users use the Wordtune Editor to generate suggestions, and copy and paste the results into their workspace. ",
+        "fileId":"db10e1c2-c2ba-4fd4-8478-bb76ccc8917b",
+        "fileName":"desktop/folder/The Wordtune extension doesnt work on a specific page or platform.txt",
+        "score":1.20192647,
+        "publicUrl":"https://support.wordtune.com/en/articles/5316564-the-wordtune-extension-doesn-t-work-on-a-specific-page-or-platform"
+     },
+     {
+        "text":"Wordtune is currently available as a Chrome Extension, an Edge Addon and on our online Wordtune Editor available on almost any browser. \n\nThe Wordtune Google Chrome Extension is compatible with most websites such as Gmail, Google Docs, Slack Web, Facebook, Outlook Web, Whatsapp Web, Twitter, TikTok, Reddit, Quora, Discord Web and many more.\nWe are constantly working to adapt the Wordtune Extension to new sites and platforms. If there is a particular one you'd find it useful on, let us know by clicking on the chat widget on this page and we'll prioritize it.In the meantime, many of our users use the Wordtune Editor to generate suggestions, and copy and paste the results into their workspace.",
+        "fileId":"7d73b0b9-2b05-4be8-bb95-74fc88dcf88e",
+        "fileName":"desktop/folder/What websites and platforms is Wordtune available on.txt",
+        "score":1.04121089,
+        "publicUrl":"https://support.wordtune.com/en/articles/5775553-what-websites-and-platforms-is-wordtune-available-on"
+     },
+     {
+        "text":"Watch the following video to learn how to install the Wordtune extension on Google Chrome: \n\nIn case you are having trouble viewing the video, here is a step-by-step guide:\n\nHow to Install Wordtune on Google Chrome:\n\n\nGo to the Google Chrome store and search for Wordtune. \n\n\nThen you can click “Add to Chrome” and download it.\n\n\nBe sure to pin the Wordtune icon to your browser so it'll be there as an extension wherever you go.\n\n\n\n\n\nTo use the Wordtune extension, start writing and highlight your text. A purple Wordtune icon will appear above your selection. Press the icon to view rewrite suggestions. \n\nIn Gmail, you can apply the Wordtune Extension as follows:\n\n\nWordtune’s widget was designed to help you review and apply our suggestions efficiently. You can use it on as many platforms as you wish.\n\nYou can also take advantage of selecting the tone of your writing. To find out more, visit this page. \n\nAny questions? \nReach out to us by clicking on the messenger icon in the lower-right corner of this screen.\n\n\n\n\n\n\n",
+        "fileId":"91f7a5c1-0c99-4dd2-96fa-e025b05f9aea",
+        "fileName":"desktop/folder/How to Install Wordtune Extension on Google Chrome.txt",
+        "score":1.03771663,
+        "publicUrl":"https://support.wordtune.com/en/articles/5898694-how-to-install-wordtune-extension-on-google-chrome"
+     }
+  ]
+}
