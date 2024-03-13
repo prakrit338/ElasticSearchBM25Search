@@ -1,3 +1,4 @@
+from flask import Flask, render_template, request
 import json
 import faiss
 import nltk
@@ -10,10 +11,11 @@ import time
 import pickle
 import torch
 
+app = Flask(__name__)
+
 # Load data and preprocess
-with open('migration.json', 'r', encoding='utf-8') as f:
+with open('my_output.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
-    
 
 def preprocess_text(text):
     # Lowercase
@@ -35,44 +37,35 @@ def preprocess_query(query):
 
 # Process data
 data_processed = [preprocess_text(entry['content']) for entry in data]
-time1 = time.time()
+
 # Load pre-trained model
 model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
 
 # Generate embeddings
 data_embeddings = model.encode(data_processed)
-print(data_embeddings)
-time2 = time.time()
-print('Time Taken for embedding: ', time2-time1)
-index = faiss.IndexFlatL2(data_embeddings.shape[1])
-index.add(data_embeddings)
-
-# Save Faiss index
-faiss.write_index(index, 'faiss_index.bin')
+faiss_index = faiss.IndexFlatL2(data_embeddings.shape[1])
+faiss_index.add(data_embeddings)
 
 # Create BM25 index
 tokenized_data = [word_tokenize(doc) for doc in data_processed]
 bm25_index = BM25Okapi(tokenized_data)
 
-# Save BM25 index
-with open('bm25_index.pkl', 'wb') as file:
-    pickle.dump(bm25_index, file)
+# Create BM25 index
+tokenized_data = [word_tokenize(doc) for doc in data_processed]
+bm25_index = BM25Okapi(tokenized_data)
 
-print('Time for indexing:', time.time()-time2)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-# User interaction
-while True:
-    query = input("Enter your query (or 'q' to quit): ")
-    if query == 'q':
-        break
+@app.route('/search', methods=['POST'])
+def search():
+    query = request.form['query']
     query_processed = preprocess_query(query)
     query_embedding = model.encode([query_processed])
 
-    # Load Faiss index
-    index = faiss.read_index('faiss_index.bin')
-
     # Search with Faiss
-    D, I = index.search(query_embedding, k=3)  # Adjust k as needed
+    D, I = faiss_index.search(query_embedding, k=3)  # Adjust k as needed
 
     # Load BM25 index
     with open('bm25_index.pkl', 'rb') as file:
@@ -81,12 +74,18 @@ while True:
     combined_scores = [(i, d + bm25_scores[i]) for i, d in zip(I[0], D[0])]
     combined_scores.sort(key=lambda x: x[1], reverse=True)
     
-    # Display results
-    print("Search Results:")
+    # Prepare search results
+    search_results = []
     for i, score in combined_scores:
-        print(f"Combined Score: {score:.4f}")
-        print(f"Title: {data[i]['title']}")
-        print(f"URL: {data[i]['url']}")
-        print(f"Summary: {data[i]['summary']}")
-        print(f"Content: {data[i]['content']}")
-        print("---")
+        result = {
+            'title': data[i]['title'],
+            'url': data[i]['url'],
+            # 'summary': data[i]['summary'],
+            'content': data[i]['content']
+        }
+        search_results.append(result)
+
+    return render_template('results.html', query=query, results=search_results)
+
+if __name__ == '__main__':
+    app.run(debug=True)

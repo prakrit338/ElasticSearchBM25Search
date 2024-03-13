@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if results %}
+    {% for result in results %}
+    <div>
+        <h2>{{ result.title }}</h2>
+        <p><strong>URL:</strong> <a href="{{ result.url }}" target="_blank">{{ result.url }}</a></p>
+        <p><strong>Summary:</strong> {{ result.summary }}</p>
+        <p><strong>Content:</strong> {{ result.content }}</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+</body>
+
+</html>

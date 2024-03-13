@@ -1,3 +1,5 @@
+#print all the necessary information
+
 import json
 import faiss
 import nltk
