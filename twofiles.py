@@ -14,7 +14,7 @@ import torch
 app = Flask(__name__)
 
 # Load data and preprocess
-with open('my_output.json', 'r', encoding='utf-8') as f:
+with open('migration.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 def preprocess_text(text):
